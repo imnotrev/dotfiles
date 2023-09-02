@@ -1,0 +1,38 @@
+* {
+    border: none;
+    font-family: FiraCode Nerd Font;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: #11111b;
+    border-radius: 8px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+}
+
+#workspaces button.active {
+    background: transparent;
+}
+
+#workspaces, #clock, #battery {
+    padding: 0 10px;
+    border-radius: 8px;
+    color: #cdd6f4;
+}
+
+#clock {
+    background: transparent;
+}
+
+#battery {
+    background: transparent;
+}
+
+#battery.charging {
+    background: transparent;
+    color: #a6e3a1;
+}
