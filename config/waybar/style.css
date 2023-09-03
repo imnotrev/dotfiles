@@ -10,26 +10,26 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 5px;
     background: transparent;
+    padding: 0 5px;
 }
 
 #workspaces button.active {
     background: transparent;
 }
 
-#workspaces, #clock, #battery {
-    padding: 0 10px;
-    border-radius: 8px;
+#workspaces button, #clock, #battery {
     color: #cdd6f4;
 }
 
 #clock {
     background: transparent;
+    padding: 0 10px;
 }
 
 #battery {
     background: transparent;
+    padding: 0 10px
 }
 
 #battery.charging {
