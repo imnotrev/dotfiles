@@ -98,23 +98,23 @@ end)
 -- }}}
 
 -- {{{ Wallpaper
-screen.connect_signal("request::wallpaper", function(s)
-    awful.wallpaper {
-        screen = s,
-        widget = {
-            {
-                image     = beautiful.wallpaper,
-                upscale   = true,
-                downscale = true,
-                widget    = wibox.widget.imagebox,
-            },
-            valign = "center",
-            halign = "center",
-            tiled  = false,
-            widget = wibox.container.tile,
-        }
-    }
-end)
+-- screen.connect_signal("request::wallpaper", function(s)
+--     awful.wallpaper {
+--         screen = s,
+--         widget = {
+--             {
+--                 image     = beautiful.wallpaper,
+--                 upscale   = true,
+--                 downscale = true,
+--                 widget    = wibox.widget.imagebox,
+--             },
+--             valign = "center",
+--             halign = "center",
+--             tiled  = false,
+--             widget = wibox.container.tile,
+--         }
+--     }
+-- end)
 -- }}}
 
 -- {{{ Wibar
@@ -123,7 +123,10 @@ end)
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+textclock = wibox.widget{
+    format = " %H:%M ",
+    widget = wibox.widget.textclock,
+}
 
 screen.connect_signal("request::desktop_decoration", function(s)
     -- Each screen has its own tag table.
@@ -166,6 +169,12 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     }
 
+    archrofi = wibox.widget{
+        markup = " 󰣇 ",
+	font = "FiraCode Nerd Font 14",
+        widget = wibox.widget.textbox,
+    }
+
     -- Create the wibox
     s.mywibox = awful.wibar {
 	font = "FiraCode Nerd Font 12",
@@ -177,6 +186,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             layout = wibox.layout.align.horizontal,
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
+		archrofi,
                 s.mytaglist,
             },
             wibox.widget.separator{
@@ -195,7 +205,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
 			off = "󰖁% 3d%% "
 		    }
 		},
-                mytextclock,
+                textclock,
             },
         }
     }
