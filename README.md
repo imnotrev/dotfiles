@@ -6,6 +6,7 @@ firefox
 neovim
 neovide
 awesome-git
+feh
 rofi
 kvantum
 qt5ct
