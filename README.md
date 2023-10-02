@@ -1,17 +1,14 @@
-This is my dotfiles
+# My dotfiles
 
-Package that need to be installed:
+Package that need to be installed **(Use yay/AUR manager)**:
+```
 firefox
-flatpak
 neovim
 neovide
-hyprland
-waybar
+awesome-git
 rofi
+kvantum
 qt5ct
-nwg-look-bin
-
-AUR:
-yay
-catppuccin-gtk
-catppuccin-kvantum
+lxappearance
+picom-simpleanims-git
+```
