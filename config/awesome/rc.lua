@@ -38,8 +38,8 @@ end)
 beautiful.init("~/.config/awesome/theme.lua")
 
 -- Custom widgets (Its useful trust me bro)
-local volume = require("widgets.volume")
-local battery = require("widgets.battery")
+local volume_widget = require("widgets.volume")
+local battery_widget = require("widgets.battery")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -148,7 +148,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
     }
 
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist {
+    taglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = {
@@ -169,10 +169,23 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     }
 
-    archrofi = wibox.widget{
+    archrofi = wibox.widget {
         markup = " 󰣇 ",
 	font = "FiraCode Nerd Font 14",
-        widget = wibox.widget.textbox,
+        widget = wibox.widget.textbox
+    }
+
+    battery = battery_widget {
+	ac_prefix = "󰂄 ",
+	battery_prefix = "󰁿 ",
+        widget_text = "${AC_BAT}${percent}%  ",
+    }
+
+    volume = volume_widget {
+	widget_text = {
+	    on = "󰕾% 3d%% ",
+	    off = "󰖁% 3d%% "
+	},
     }
 
     -- Create the wibox
@@ -187,24 +200,15 @@ screen.connect_signal("request::desktop_decoration", function(s)
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
 		archrofi,
-                s.mytaglist,
+                taglist,
             },
             wibox.widget.separator{
 	        opacity = 0
 	    }, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-		battery {
-		    ac_prefix = "󰂄 ",
-		    battery_prefix = "󰁿 ",
-		    widget_text = "${AC_BAT}${percent}%  ",
-		},
-		volume {
-		    widget_text = {
-		        on = "󰕾% 3d%% ",
-			off = "󰖁% 3d%% "
-		    }
-		},
+		battery,
+		volume,
                 textclock,
             },
         }
@@ -225,8 +229,6 @@ awful.mouse.append_global_mousebindings({
 
 -- General Awesome keys
 awful.keyboard.append_global_keybindings({
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Control"   }, "q", awesome.quit,
@@ -262,6 +264,34 @@ awful.keyboard.append_global_keybindings({
             awful.client.focus.bydirection("right", client.focus)
         end,
         {description = "focus right", group = "client"}
+    )
+})
+
+-- Swap related keybindings
+awful.keyboard.append_global_keybindings({
+    awful.key({ modkey, "Shift"           }, "h",
+        function ()
+            awful.client.swap.bydirection("left", client.focus)
+        end,
+        {description = "swap left", group = "client"}
+    ),
+    awful.key({ modkey, "Shift"           }, "j",
+        function ()
+            awful.client.swap.bydirection("down", client.focus)
+        end,
+        {description = "swap down", group = "client"}
+    ),
+    awful.key({ modkey, "Shift"           }, "k",
+        function ()
+            awful.client.swap.bydirection("up", client.focus)
+        end,
+        {description = "swap up", group = "client"}
+    ),
+    awful.key({ modkey, "Shift"           }, "l",
+        function ()
+            awful.client.swap.bydirection("right", client.focus)
+        end,
+        {description = "swap right", group = "client"}
     )
 })
 
@@ -414,6 +444,6 @@ end)
 
 awful.spawn.with_shell("xclip")
 awful.spawn.with_shell("picom -b")
-awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("feh --bg-scale --random ~/Wallpaper")
 
 -- }}}
