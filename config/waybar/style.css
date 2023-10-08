@@ -11,14 +11,15 @@ window#waybar {
 
 #workspaces button {
     background: transparent;
-    padding: 0 5px;
+    color: #6c7086;
+    padding: 0 4px;
 }
 
 #workspaces button.active {
     background: transparent;
 }
 
-#workspaces button, #clock, #battery {
+#workspaces button.active, #battery, #pulseaudio, #clock {
     color: #cdd6f4;
 }
 
@@ -30,9 +31,4 @@ window#waybar {
 #battery {
     background: transparent;
     padding: 0 10px
-}
-
-#battery.charging {
-    background: transparent;
-    color: #a6e3a1;
 }

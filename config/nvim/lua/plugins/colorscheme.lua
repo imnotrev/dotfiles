@@ -1,9 +1,6 @@
 return {
     {
-      "catppuccin/nvim",
-      name =  "catppuccin.nvim"
-    },
-    {
-      "nyoom-engineering/oxocarbon.nvim"
+     "catppuccin/nvim",
+     name = "catppuccin"
     }
 }
