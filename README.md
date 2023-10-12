@@ -1,19 +1,18 @@
 # My dotfiles
+This is a very normal and newbie dots, don't expect much!
 
-Package that need to be installed **(Use yay/AUR manager)**:
+## How to install
+**Upgrade to unstable**
 ```
-firefox
-neovim
-neovide
-hyprland
-waybar
-awesome-git
-feh
-swaybg
-waypaper
-rofi
-kvantum
-qt5ct
-lxappearance
-picom-simpleanims-git
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+sudo nix-channel --update
+```
+**Copy all the files**
+```
+sudo cp -r ~/dotfiles/nixos/ /etc/
+cp -r ~/dotfiles/.config/ ~
+```
+**Apply all the config**
+```
+sudo nixos-rebuild switch --upgrade
 ```
