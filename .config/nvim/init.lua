@@ -1,4 +1,4 @@
+require("core.plugins")
 require("core.keymaps")
-require("core.options")
-require("core.lazy")
-vim.cmd.colorscheme "catppuccin"
+require("plugins")
+vim.cmd [[ colorscheme catppuccin ]]
