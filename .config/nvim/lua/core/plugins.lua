@@ -16,19 +16,27 @@ require("lazy").setup({
   "nvim-tree/nvim-web-devicons",
   "nvim-lua/plenary.nvim",
   -- Colorscheme
+  -- "RRethy/nvim-base16",
   { "catppuccin/nvim", name = "catppuccin" },
   "folke/tokyonight.nvim",
+  { "rose-pine/neovim", name = "rosepine" },
   -- Statusline
   "nvim-lualine/lualine.nvim",
-  -- Telescope (for searching file)
+  -- Bufferline
+  { "akinsho/bufferline.nvim", version = "*" },
+  -- Telescope
   "nvim-telescope/telescope.nvim",
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  -- Dashboard
+  { "nvimdev/dashboard-nvim", event = "VimEnter"},
   -- LSP
-  { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
-  { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
-  { "neovim/nvim-lspconfig" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/nvim-cmp" },
-  { "L3MON4D3/LuaSnip" },
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "neovim/nvim-lspconfig",
+  -- Autocomplete
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-nvim-lsp",
+  "L3MON4D3/LuaSnip",
+  -- Treesitter
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }
 })
