@@ -16,3 +16,5 @@ require("dashboard").setup{
     }
   }
 }
+
+vim.cmd [[ hi DashboardHeader ctermbg=red ]]

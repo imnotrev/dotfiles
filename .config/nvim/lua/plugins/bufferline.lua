@@ -1,5 +1,6 @@
 require("bufferline").setup{
   options = {
-    mode = "buffer"
+    mode = "buffers",
+    always_show_bufferline = false
   }
 }

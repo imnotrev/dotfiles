@@ -1,7 +1,4 @@
-local present, alpha = pcall(require, "alpha")
-if not present then
-  return
-end
+local alpha = require("alpha")
 
 local header = {
   type = "text",

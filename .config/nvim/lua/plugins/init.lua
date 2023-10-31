@@ -1,6 +1,7 @@
 require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.bufferline")
+require("plugins.indent")
 require("plugins.telescope")
 require("plugins.alpha")
 require("plugins.lsp")

@@ -13,6 +13,6 @@ map("n", "<leader>ch", "<cmd>cd ~<cr>", { silent = false })
 
 map("n", "gt", "<cmd>bnext<cr>", { silent = false })
 map("n", "gT", "<cmd>bprevious<cr>", { silent = false })
-map("n", "<leader>x", "<cmd>bd<cr>", { silent = false })
+map("n", "<leader>q", "<cmd>bd!<cr>", { silent = false })
 
 map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = false })
