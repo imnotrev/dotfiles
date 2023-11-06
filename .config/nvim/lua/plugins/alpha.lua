@@ -1,83 +1,24 @@
 local alpha = require("alpha")
+local dashboard = require("alpha.themes.dashboard")
 
-local header = {
-  type = "text",
-  val = {
-    "   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ",
-    "    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ",
-    "          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄     ",
-    "           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ",
-    "          ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ",
-    "   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ",
-    "  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ",
-    " ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ",
-    " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄ ",
-    "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ",
-    "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
-  },
-  opts = {
-    position = "center",
-    hl = "Title",
-  },
+dashboard.section.header.val = {
+    "███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
+    "████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║",
+    "██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║",
+    "██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║",
+    "██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
+    "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
 }
 
-local function button(sc, txt, keybind)
-  local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
-
-  local opts = {
-    position = "center",
-    text = txt,
-    shortcut = sc,
-    cursor = 6,
-    width = 19,
-    align_shortcut = "right",
-    hl_shortcut = "Number",
-    hl = "Text",
-  }
-  if keybind then
-    opts.keymap = { "n", sc_, keybind, { noremap = true, silent = true } }
-  end
-
-  return {
-    type = "button",
-    val = txt,
-    on_press = function()
-      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
-      vim.api.nvim_feedkeys(key, "normal", false)
-    end,
-    opts = opts,
-  }
-end
-
-local buttons = {
-  type = "group",
-  val = {
-    button("SPC n", "󰈔  New file               ", ":enew<CR>"),
-    button("SPC ff", "  Find files            ", ":Telescope find_files<CR>"),
-    button("SPC l", "󰒲  Lazy                   ", ":Lazy<CR>"),
-    button("q", "  Quit                       ", ":qa!<CR>"),
-  },
-  opts = {
-    position = "center",
-    spacing = 1,
-  },
+dashboard.section.buttons.val = {
+    dashboard.button( "SPC n", "  New file" , ":ene<CR>"),
+    dashboard.button( "SPC ff", "  Find file", ":Telescope find_files<CR>"),
+    dashboard.button( "SPC l", "󰒲  Lazy" , ":Lazy<CR>"),
+    dashboard.button( "q", "󰗼  Quit NVIM", ":q<CR>"),
 }
 
-local section = {
-  header = header,
-  buttons = buttons,
-}
+dashboard.opts.layout[1].val = 8
 
-local opts = {
-  layout = {
-    { type = "padding", val = 3 },
-    section.header,
-    { type = "padding", val = 2 },
-    section.buttons,
-  },
-  opts = {
-    margin = 44,
-  },
-}
+vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
 
-alpha.setup(opts)
+alpha.setup(dashboard.opts)

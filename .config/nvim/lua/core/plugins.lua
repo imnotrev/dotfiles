@@ -17,14 +17,17 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim",
   -- Colorscheme
   "RRethy/nvim-base16",
+  { "catppuccin/nvim", name = "catppuccin" },
   -- Statusline
   "nvim-lualine/lualine.nvim",
   -- Bufferline
   { "akinsho/bufferline.nvim", version = "*" },
   -- Indent
   { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
+  -- Cheatsheet
+  "folke/which-key.nvim",
   -- Telescope
-  "nvim-telescope/telescope.nvim",
+  { "nvim-telescope/telescope.nvim", event = "VeryLazy" },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   -- Dashboard
   { "goolord/alpha-nvim", event = "VimEnter" },
