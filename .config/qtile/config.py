@@ -75,6 +75,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "f", lazy.spawn("rofi -show drun"), desc="Spawn launcher"),
+    Key([mod], "Print", lazy.spawn("scrot"), desc="Spawn launcher"),
 ]
 
 groups = [Group(f"{i+1}", label="") for i in range(6)]
@@ -137,7 +138,7 @@ screens = [
                     padding = 10
                 ),
                 widget.GroupBox(
-                    fontsize = 16,
+                    fontsize = 15,
                     highlight_method = "text",
                     highlight_color = "#cdd6f4",
                     this_current_screen_border = "#cdd6f4",
@@ -151,7 +152,7 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.Battery(
                     format = "{char} {percent:2.0%} ",
-                    discharge_char = "󰁿",
+                    discharge_char = "󰁹",
                     charge_char = "󰂄"
                 ),
                 widget.PulseVolume(

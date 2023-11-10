@@ -1,3 +1,3 @@
 #!/bin/sh
-picom -b &
-nitrogen --restore &
+picom &
+feh --randomize --bg-scale Wallpaper &
