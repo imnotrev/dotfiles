@@ -2,14 +2,14 @@
 This is a very normal and newbie dots, don't expect much!
 
 ## Apps used
-* **Window Manager** : [Awesome](https://awesomewm.org/)  🪟
+* **Window Manager** : [Hyprland](https://hyprland.org/), [Awesome](https://awesomewm.org/)  🪟
 * **Launcher** : [Rofi](https://github.com/davatorium/rofi)  🚀
 * **Terminal** : [Kitty](https://github.com/kovidgoyal/kitty)  🐱
 * **Editor**  : [Neovim](https://neovim.io/)  🗒️
-* **Compositor**  : [Picom](https://github.com/allusive-dev/picom-allusive)  🍧
+* **Compositor**  : [Compfy](https://github.com/allusive-dev/compfy)  🍧
 
 ## How to install
 ### Arch Linux
-`yay -S awesome-git rofi kitty nvim picom-allusive`
+`yay -S hyprland waybar awesome-git rofi kitty nvim compfy`
 ### NixOS
 Coming (not) soon!
