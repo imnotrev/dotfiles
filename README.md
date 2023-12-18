@@ -7,9 +7,3 @@ This is a very normal and newbie dots, don't expect much!
 * **Terminal** : [Kitty](https://github.com/kovidgoyal/kitty)  🐱
 * **Editor**  : [Neovim](https://neovim.io/)  🗒️
 * **Compositor**  : [Compfy](https://github.com/allusive-dev/compfy)  🍧
-
-## How to install
-### Arch Linux
-`yay -S hyprland waybar awesome-git rofi kitty nvim compfy`
-### NixOS
-Coming (not) soon!
