@@ -1,0 +1,66 @@
+* {
+    border: none;
+    font-family: FiraCode Nerd Font;
+    font-size: 14px;
+}
+
+window#waybar {
+    background: rgba(25, 23, 36, 1);
+    border-radius: 8px;
+}
+
+#custom-rofi {
+    color: #191724;
+    background: #ebbcba;
+    margin: 4px;
+    padding-left: 8px;
+    padding-right: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#workspaces {
+    background: #1f1d2e;
+    margin: 4px;
+    padding-left: 4px;
+    padding-right: 8px;
+    border-radius: 8px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: #908caa;
+    padding: 0 4px;
+}
+
+#workspaces button.active {
+    background: transparent;
+    color: #ebbcba;
+}
+
+#battery {
+    color: #e0def4;
+    background: #1f1d2e;
+    margin: 4px;
+    padding-left: 10px;
+    padding-right: 8px;
+    border-radius: 8px;
+}
+
+#pulseaudio {
+    color: #e0def4;
+    background: #1f1d2e;
+    margin: 4px;
+    padding-left: 10px;
+    padding-right: 8px;
+    border-radius: 8px;
+}
+
+#clock {
+    color: #e0def4;
+    background: #1f1d2e;
+    margin: 4px;
+    padding-left: 10px;
+    padding-right: 8px;
+    border-radius: 8px;
+}
